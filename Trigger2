@@ -1,0 +1,7 @@
+Create or replace trigger num_of_rows
+Before insert on cart
+Declare 
+total_rows:=sql%rowcount;
+begin
+dbms_output.put_line(total_rows);
+end
