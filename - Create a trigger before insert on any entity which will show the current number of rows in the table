@@ -1,0 +1,9 @@
+CREATE OR REPLACE TRIGGER trg_customer_address
+  BEFORE INSERT ON Customer_address
+DECLARE
+  num_rows NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO num_rows FROM Customer_address;
+  DBMS_OUTPUT.PUT_LINE('The current number of rows in the Customer_address table is ' || num_rows);
+END;
+/
