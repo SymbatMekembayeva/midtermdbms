@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION count_customer_ids
+RETURN NUMBER
+IS
+  record_count NUMBER;
+BEGIN
+  SELECT COUNT(*) INTO record_count
+  FROM Customer;
+  
+  RETURN record_count;
+END;
