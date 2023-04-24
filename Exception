@@ -1,0 +1,12 @@
+DECLARE 
+   item_name  product.name%type := :item_n;
+   -- user defined exception 
+   invalid_name  EXCEPTION; 
+BEGIN 
+   IF length(item_name)<5 THEN 
+      RAISE invalid_name; 
+   END IF; 
+EXCEPTION 
+   WHEN invalid_name THEN 
+      dbms_output.put_line('Name of product should not be less than 5 characters'); 
+END;
