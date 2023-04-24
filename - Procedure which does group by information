@@ -1,0 +1,15 @@
+CREATE OR REPLACE PROCEDURE review_by_product (
+    proc_description IN review.description%TYPE,
+    proc_customer_id IN review.customer_id%TYPE
+)
+IS
+BEGIN
+    FOR rec IN (
+        SELECT product_id, COUNT(*) AS num_reviews
+        FROM review
+        WHERE description = proc_description AND customer_id = proc_customer_id
+        GROUP BY product_id
+    ) LOOP
+        DBMS_OUTPUT.PUT_LINE('Product ID: '  rec.product_id  ', Number of Reviews: ' || rec.num_reviews);
+    END LOOP;
+END;
