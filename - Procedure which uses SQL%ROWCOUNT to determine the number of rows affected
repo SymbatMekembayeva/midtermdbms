@@ -1,0 +1,9 @@
+CREATE OR REPLACE PROCEDURE update_records
+IS
+BEGIN
+  UPDATE Product
+  SET price = price * 1.1
+  WHERE Category_id = '220103550';
+  
+  DBMS_OUTPUT.PUT_LINE('Number of rows updated: ' || SQL%ROWCOUNT);
+END;
